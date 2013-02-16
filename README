@@ -1,2 +1,9 @@
-This is a UserScript which adds the shorcut CTRL-SHIFT-B to the editbox on
-stackoverflow.com which will beautify the selected JavaScript code.
+# User scripts for Stack Overflow
+
+## StackOverflow_JS_Beautifier.user.js
+Adds the shortcut CTRL-SHIFT-B to the editbox on stackoverflow.com to beautify
+the selected JavaScript code.
+
+## StackOverflow_Flags.user.js
+Adds a button to mod flag pages to move very-quick-to-handle flags to the top.
+Most useful for NAA flags.
