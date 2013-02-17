@@ -3,7 +3,8 @@
 // @namespace adrian@planetcoding.net
 // @description Utilities to improve mod flag handling
 // @include http://stackoverflow.com/admin/dashboard*
-// @version 1.0
+// @version 1.1
+// @grant none
 // ==/UserScript==
 
 function withJQuery(f) {
@@ -14,7 +15,34 @@ function withJQuery(f) {
 };
 
 withJQuery(function($) {
-    function moveQuickFlagsUp() {
+    var BAD_PHRASES = [
+        'thank you',
+        'thanks',
+        'similar problem',
+        'same problem',
+        'same error',
+        'the same',
+        'need this too'
+    ];
+
+    function improveFlagList() {
+        // Highlight posts containing "bad" phrases
+        $('.post-summary-body').filter(function() {
+            var $this = $(this);
+            var ret = false;
+            $.each(BAD_PHRASES, function(i, phrase) {
+                if(~$this.text().toLowerCase().indexOf(phrase)) {
+                    var html = $this.html();
+                    html = html.replace(new RegExp(phrase, 'gi'), '<span style="background: #fe0;">$&</span>');
+                    $this.html(html);
+                    ret = true;
+                    return false;
+                }
+            });
+            return ret;
+        }).closest('.m-flag').detach().prependTo('.flagged-posts > tbody');
+
+        // Move flags with delete votes and already-deleted posts to the top
         var quickFlags = $('.delete-post').filter(function() {
             return ~$(this).val().indexOf('(');
         });
@@ -22,8 +50,8 @@ withJQuery(function($) {
         quickFlags.closest('.m-flag').detach().prependTo('.flagged-posts > tbody');
     }
 
-    $('<button>Move easy flags up</button>').on('click', function() {
-        moveQuickFlagsUp();
+    $('<button>Improve Flag List</button>').on('click', function() {
+        improveFlagList();
         this.disabled = true;
     }).prependTo('.flag-container');
 });
