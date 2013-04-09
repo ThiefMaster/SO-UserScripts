@@ -3,7 +3,7 @@
 // @namespace   adrian@planetcoding.net
 // @description Adds a shortcut to beautify JavaScript in a StackOverflow post.
 // @include     http://stackoverflow.com/*
-// @version     1.1
+// @version     1.2
 // ==/UserScript==
 
 function withJQuery(f) {
@@ -24,7 +24,7 @@ withJQuery(function($) {
         space_before_conditional: false
     };
 
-    $.getScript('https://raw.github.com/einars/js-beautify/master/beautify.js', function() {
+    $.getScript('https://raw.github.com/einars/js-beautify/master/js/lib/beautify.js', function() {
         $(document).on('keydown', '.wmd-input', function(e) {
             if(!(e.ctrlKey && e.shiftKey && e.which == 66)) { // ctrl-shift-b
                 return;
