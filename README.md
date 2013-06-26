@@ -12,3 +12,7 @@ Most useful for NAA flags.
 Removes the `confirm()` prompt of the convert-to-comment button in any case
 since moderators are smart enough not to do it by accident or undo it in case
 they do.
+
+## StackOverflow_DeleteComments.user.js
+Adds a link to quickly delete comments to the "view user comments" page
+moderators have.
