@@ -22,7 +22,13 @@ withJQuery(function($) {
         'same problem',
         'same error',
         'the same',
-        'need this too'
+        'need this too',
+        'how can',
+        'can you',
+        'please help',
+        'please assist',
+        'please suggest',
+        'do you know'
     ];
 
     function improveFlagList() {
