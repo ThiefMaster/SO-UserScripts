@@ -3,7 +3,7 @@
 // @namespace adrian@planetcoding.net
 // @description Utilities to improve mod flag handling
 // @include http://stackoverflow.com/admin/dashboard*
-// @version 1.1
+// @version 1.1.1
 // @grant none
 // ==/UserScript==
 
@@ -19,6 +19,7 @@ withJQuery(function($) {
         'thank you',
         'thanks',
         'similar problem',
+        'similar issue',
         'same problem',
         'same error',
         'the same',
@@ -28,7 +29,8 @@ withJQuery(function($) {
         'please help',
         'please assist',
         'please suggest',
-        'do you know'
+        'do you know',
+        'i tried'
     ];
 
     function improveFlagList() {
