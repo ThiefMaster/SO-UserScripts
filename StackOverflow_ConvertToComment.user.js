@@ -3,7 +3,7 @@
 // @namespace adrian@planetcoding.net
 // @description Remove the confirmation prompt when converting an answer to a comment
 // @include http://stackoverflow.com/admin/dashboard*
-// @version 1.1
+// @version 1.2
 // @grant none
 // ==/UserScript==
 
@@ -12,5 +12,5 @@ window.confirm = function(message) {
     if(message == 'The answer will become a comment on the question; are you sure?') {
         return true;
     }
-    return confirm.apply(this, arguments);
+    return confirm.apply(window, arguments);
 };
